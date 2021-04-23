@@ -9,26 +9,40 @@ if not exist "%SystemRoot%\_download.cmd" (
     goto :exit1
 )
 
-if not defined SDELETE_URL set SDELETE_URL=http://web.archive.org/web/20160404120859if_/http://live.sysinternals.com/sdelete.exe
+if not defined SDELETE_URL set SDELETE_URL=https://download.sysinternals.com/files/SDelete.zip
 
-for %%i in ("%SDELETE_URL%") do set SDELETE_EXE=%%~nxi
+if defined ProgramFiles(x86) (
+  set SDELETE_EXE=sdelete64.exe
+) else (
+  set SDELETE_EXE=sdelete.exe
+)
 set SDELETE_DIR=%TEMP%\sdelete
+set SDELETE_ARCHIVE=SDelete.zip
 set SDELETE_PATH=%SDELETE_DIR%\%SDELETE_EXE%
+
+rem Enable the below if you run into NTFS MFT File hangs
+rem echo ==^> Fixing NTFS Compression Bug in SDELETE
+rem set TEMP_ESCAPED=%TEMP:\=\\%
+rem echo %TEMP_ESCAPED%
+rem powershell -NoProfile -Command {$file = Get-WmiObject -Query ""SELECT * FROM CIM_DataFile WHERE Name=%TEMP_ESCAPED%""; $file.Compress()}
 
 echo ==^> Creating "%SDELETE_DIR%"
 mkdir "%SDELETE_DIR%"
 pushd "%SDELETE_DIR%"
 
-call "%SystemRoot%\_download.cmd" "%SDELETE_URL%" "%SDELETE_PATH%"
+call "%SystemRoot%\_download.cmd" "%SDELETE_URL%" "%SDELETE_ARCHIVE%"
 if errorlevel 1 (
   echo ==^> ERROR: Unable to download file from %SDELETE_URL%
   goto exit1
 )
 
-if not exist "%SDELETE_PATH%" goto exit1
+if not exist "%SDELETE_ARCHIVE%" goto exit1
+echo ==^> Unzipping "%SDELETE_ARCHIVE%" to "%SDELETE_DIR%"
+7z e -y -o"%SDELETE_DIR%" "%SDELETE_ARCHIVE%"
+
+@if errorlevel 1 echo ==^> WARNING: Error %ERRORLEVEL% was returned by: 7z e -o"%SDELETE_DIR%" "%SDELETE_PATH%"
 
 reg add HKCU\Software\Sysinternals\SDelete /v EulaAccepted /t REG_DWORD /d 1 /f
-
 echo ==^> Running SDelete on %SystemDrive%
 "%SDELETE_PATH%" -z %SystemDrive%
 
