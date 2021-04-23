@@ -6,7 +6,9 @@ This repository contains templates for Windows that can create
 Vagrant boxes using Packer.
 
 To build the custom CyberSTAR image, you would run:
-    make virtualbox/cyberstar-workshop-1-win10x64
+```
+make virtualbox/cyberstar-workshop-1-win10x64
+```
 
 ## Core Boxes
 
