@@ -193,8 +193,8 @@ for 64-bit. If the user wishes to change the path to download 7-zip from, this
 can be done by modifying the `SEVENZIP_32_URL` variable or the `SEVENZIP_64_URL`
 variable depending on the platform's architecutre.
 
-At this point, an archive for the UltraDefrag tool at [http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.0.2.bin.i386.zip](http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.0.2.bin.i386.zip)
-is then downloaded for a 32-bit platform, or the archive from the [http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.0.2.bin.amd64.zip](http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.0.2.bin.amd64.zip)
+At this point, an archive for the UltraDefrag tool at [http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.1.4.bin.i386.zip](http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.1.4.bin.i386.zip)
+is then downloaded for a 32-bit platform, or the archive from the [http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.1.4.bin.amd64.zip](http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.1.4.bin.amd64.zip)
 url is downloaded for a 64-bit platform. After downloading the correct archive,
 7-zip will then be used to extract its contents, and then the application will
 be run to perform the task of defragmenting the hard disk. When the hard disk
