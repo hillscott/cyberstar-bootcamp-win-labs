@@ -23,18 +23,26 @@ except Exception:
 dlg = ch_window.window(title_re="Agree", control_type="Button")
 dlg.click()
 time.sleep(3)
-# Decline Avast
+# Decline PUP-1
 ch_window.Button5.click()
-# Install Opera
+time.sleep(3)
+# Install PUP-2
 ch_window.Button5.click()
-# Install SodaPDF
+time.sleep(3)
+# Install PUP-3
 ch_window.Button6.click() 
+time.sleep(3)
 dlg = ch_window.window(title_re="Next", control_type="Button")
 dlg.click()
+time.sleep(3)
 dlg = ch_window.window(title_re="Next", control_type="Button")
 dlg.click()
-dlg = ch_window.window(title_re="Next", control_type="Button")
-dlg.click()
+time.sleep(3)
+try:
+    dlg = ch_window.window(title_re="Next", control_type="Button")
+    dlg.click()
+except Exception:
+    dlg.close()
 time.sleep(20)
 dlg = ch_window.window(title_re="Finish", control_type="Button")
 dlg.click()
