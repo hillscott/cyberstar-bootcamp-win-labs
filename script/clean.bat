@@ -13,7 +13,7 @@ if "%VERSION%" == "6.1" (
     C:\Windows\System32\cleanmgr.exe /sagerun:10﻿
 ) else (
     echo ==^> Running DISM to remove old components
-    Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+    Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase /Remove-OSUninstall
 )
 
 echo ==^> Cleaning up old Windows Update files
