@@ -2,7 +2,7 @@
 @for %%i in (a:\_packer_config*.cmd) do @call "%%~i"
 @if defined PACKER_DEBUG (@echo on) else (@echo off)
 
-set "LICENSE_URL=https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Permiso_de_conducir_plastificado.jpg/512px-Permiso_de_conducir_plastificado.jpg"
+set "LICENSE_URL=https://upload.wikimedia.org/wikipedia/commons/d/df/Permiso_de_conducir_plastificado.jpg"
 set "DOCS=C:\Users\vagrant\Documents"
 
 echo ==^> Making some garbage data

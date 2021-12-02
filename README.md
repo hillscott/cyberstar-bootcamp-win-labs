@@ -9,6 +9,9 @@ To build the custom CyberSTAR image, you would run:
 ```
 make virtualbox/cyberstar-workshop-1-win10x64
 ```
+NOTE: I've experienced numerous bugs with Virtualbox when using the Nvidia 
+proprietary drivers in Linux. If you are running on top of Linux, consider 
+using the OSS drivers.
 
 ## Core Boxes
 
